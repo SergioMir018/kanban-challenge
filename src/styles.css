@@ -2,14 +2,56 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #1d00a5;
+  --primary-background: #cec0ff;
+  --secondary: #1e1e20;
+  --secondary-light: #474649;
+  --secondary-background: #c8c6c8;
+  --tertiary: #3abff8;
+  --tertiary-dark: #003549;
+  --tertiary-background: #006689;
+  --neutral: #0f0f10;
+}
+
 html,
 body,
 #app {
   min-height: 100%;
+  background-color: var(--neutral);
 }
 
-main {
-  h1 {
-    line-height: 0.5;
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  margin: 0;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: var(--secondary-background);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: all 0.1s ease-in;
   }
+  a:not(.active):hover {
+    background-color: var(--secondary-light);
+  }
+}
+
+.active {
+  background-color: var(--primary);
+  color: white;
 }
