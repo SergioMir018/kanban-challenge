@@ -42,3 +42,19 @@ main {
 .primaryButton:hover {
   background-color: var(--primary-active);
 }
+
+.ghostButton {
+  background-color: transparent;
+  border: 0;
+  color: var(--primary-light-foreground);
+  outline: none;
+  border-radius: 5px;
+}
+
+.ghostButton:hover {
+  background-color: color-mix(in srgb, var(--primary-light-foreground), transparent 92%);
+}
+
+.iconButton {
+  padding: 2px 4px;
+}

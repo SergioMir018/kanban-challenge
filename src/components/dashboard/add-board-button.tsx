@@ -10,6 +10,7 @@ export default function AddBoardButton() {
     boardState.addBoard({
       id: Date.now().toString(),
       name: `Board ${boardState.boards.length + 1}`,
+      description: `Description for Board ${boardState.boards.length + 1}`,
     })
   }
 
