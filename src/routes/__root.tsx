@@ -12,7 +12,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
-import Dock from '#/components/dock'
+import Dock from '#/components/common/dock'
 
 interface MyRouterContext {
   queryClient: QueryClient

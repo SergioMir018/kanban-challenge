@@ -5,7 +5,8 @@
 :root {
   --primary: #4f46e5;
   --primary-dark: #1d00a5;
-  --primary-background: #cec0ff;
+  --primary-background:  #cec0ff;
+  --primary-active: #ada9f4;
   --primary-light-foreground: #c7c4d8;
   --secondary: #1e1e20;
   --secondary-light: #2e2e2f;
@@ -21,5 +22,23 @@ html,
 body,
 #app {
   min-height: 100%;
+  margin: 0;
   background-color: var(--background);
+  color: white;
+}
+
+main {
+  padding: 0 20px 0 20px;;
+}
+
+.primaryButton {
+  background-color: var(--primary-background);
+  color: var(--primary-dark);
+  border-width: 0;
+  outline: none;
+  border-radius: 5px;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary-active);
 }
