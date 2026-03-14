@@ -1,5 +1,6 @@
 import { useRouterState } from '@tanstack/react-router'
 import { LayoutDashboard, SquareKanban, Settings } from 'lucide-react'
+import styles from './dock.module.css'
 
 const sections = [
   {
@@ -20,19 +21,22 @@ const sections = [
 ]
 
 export default function Dock() {
-  const currentPath = useRouterState();
+  const currentPath = useRouterState()
   return (
-    <nav className="dock">
+    <nav className={styles.dock}>
       {sections.map((section) => {
         return (
           <a
             key={section.name}
             href={section.href}
-            className={
-              currentPath.location.pathname.includes(section.href)
-                ? 'active'
-                : ''
-            }
+            className={`
+              ${
+                currentPath.location.pathname.includes(section.href)
+                  ? styles.active
+                  : ''
+              }
+              ${styles.link}
+              `}
           >
             {section.icon}
             {section.name}
