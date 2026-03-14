@@ -12,6 +12,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
+import Dock from '#/components/dock'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -30,7 +31,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Kanban Challenge',
       },
     ],
     links: [
@@ -53,6 +54,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <TanStackQueryProvider>
           {children}
+          <Dock />
           <TanStackDevtools
             config={{
               position: 'bottom-right',
