@@ -23,6 +23,14 @@ export default function BoardCard({ title, description }: BoardCardProps) {
         <BoardActionsButton />
       </div>
       <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
+      <p className={styles.boardDescription}>{description}</p>
     </div>
   )
 }

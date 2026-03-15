@@ -1,5 +1,9 @@
 .boardCard {
-  background-color: var(--secondary);
+  background: radial-gradient(
+      200px circle at var(--card-x) var(--card-y),
+      color-mix(in srgb, var(--primary), transparent 80%),
+      var(--secondary)
+    );;
   padding: 25px;
   corner-shape: squircle;
   border-radius: 10px;
@@ -16,25 +20,16 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-
   background:
     radial-gradient(
-      200px circle at var(--card-x) var(--card-y),
+      300px circle at var(--card-x) var(--card-y),
       var(--primary),
       transparent 60%
-    ),
-    conic-gradient(
-      from 0deg at var(--card-x) var(--card-y),
-      transparent 0deg,
-      rgba(140,100,255,0.3) 90deg,
-      transparent 180deg
     );
-
-  -webkit-mask:
+  mask:
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
-
-  -webkit-mask-composite: xor;
+  mask-image: xor;
   mask-composite: exclude;
 }
 
