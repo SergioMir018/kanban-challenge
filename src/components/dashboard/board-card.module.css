@@ -1,0 +1,61 @@
+.boardCard {
+  background: var(--secondary);
+  padding: 25px;
+  corner-shape: squircle;
+  border-radius: 10px;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (pointer: fine) {
+  .boardCard {
+    background: radial-gradient(
+      200px circle at var(--card-x) var(--card-y),
+      color-mix(in srgb, var(--primary), transparent 80%),
+      var(--secondary)
+    );
+    --card-x: calc(var(--mouse-x) - var(--card-left));
+    --card-y: calc(var(--mouse-y) - var(--card-top));
+  }
+  .boardCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background:
+      radial-gradient(
+        300px circle at var(--card-x) var(--card-y),
+        var(--primary),
+        transparent 60%
+      );
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-image: xor;
+    mask-composite: exclude;
+  }
+
+  .boardCard:hover::before{
+    opacity: 1;
+  }
+}
+
+.boardCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boardCardHeader h2 {
+  margin: 0;
+}
+
+.boardDescription {
+  margin: 5px 0 0 0;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--primary-light-foreground);
+}

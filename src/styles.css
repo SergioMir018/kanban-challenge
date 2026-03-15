@@ -1,18 +1,33 @@
+@font-face {
+  font-family: 'MyVariableFont';
+  src: url('/fonts/NotoSans.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+}
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'NotoSans', sans-serif;
 }
 
 :root {
   --primary: #4f46e5;
   --primary-dark: #1d00a5;
   --primary-background: #cec0ff;
+  --primary-active: #ada9f4;
   --primary-light-foreground: #c7c4d8;
-  --secondary: #1e1e20;
+
+  --secondary: #1c1b1c;
   --secondary-light: #2e2e2f;
+  --secondary-highlight: #3a3a3a;
   --secondary-background: #c8c6c8;
+
   --tertiary: #3abff8;
   --tertiary-dark: #003549;
   --tertiary-background: #006689;
+
   --neutral: #0f0f10;
   --background: #131314;
 }
@@ -21,5 +36,46 @@ html,
 body,
 #app {
   min-height: 100%;
+  margin: 0;
   background-color: var(--background);
+  color: white;
+}
+
+main {
+  padding: 0 20px;
+}
+
+.primaryButton {
+  background-color: var(--primary-background);
+  color: var(--primary-dark);
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary-active);
+}
+
+.ghostButton {
+  background: transparent;
+  border: 0;
+  color: var(--primary-light-foreground);
+  outline: none;
+  border-radius: 5px;
+}
+
+.ghostButton:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-light-foreground),
+    transparent 92%
+  );
+}
+
+.iconButton {
+  padding: 2px 4px;
 }

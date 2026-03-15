@@ -1,0 +1,23 @@
+.mainContent {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.boardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px
+}
+
+@media (340px <= width <= 950px) {
+  .boardsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (340px <= width <= 950px) and (orientation: landscape) {
+  .boardsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+} 
