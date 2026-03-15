@@ -13,6 +13,7 @@ import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
 import Dock from '#/components/common/dock'
+import { useGlobalMouseLight } from '#/lib/hooks/use-mouse-light'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -45,6 +46,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  useGlobalMouseLight()
   return (
     <html lang="en" suppressHydrationWarning>
       <head>

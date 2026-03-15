@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -37,6 +39,7 @@ main {
   border-width: 0;
   outline: none;
   border-radius: 5px;
+  padding: 0 5px;
 }
 
 .primaryButton:hover {

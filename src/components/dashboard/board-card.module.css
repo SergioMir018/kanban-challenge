@@ -3,6 +3,43 @@
   padding: 25px;
   corner-shape: squircle;
   border-radius: 10px;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+  --card-x: calc(var(--mouse-x) - var(--card-left));
+  --card-y: calc(var(--mouse-y) - var(--card-top));
+}
+
+.boardCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+
+  background:
+    radial-gradient(
+      200px circle at var(--card-x) var(--card-y),
+      var(--primary),
+      transparent 60%
+    ),
+    conic-gradient(
+      from 0deg at var(--card-x) var(--card-y),
+      transparent 0deg,
+      rgba(140,100,255,0.3) 90deg,
+      transparent 180deg
+    );
+
+  -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.boardCard:hover::before{
+  opacity: 1;
 }
 
 .boardCardHeader {
