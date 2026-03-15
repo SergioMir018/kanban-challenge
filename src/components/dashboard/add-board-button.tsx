@@ -19,7 +19,7 @@ export default function AddBoardButton() {
       onClick={handleAddBoard}
       className={`primaryButton ${styles.addButton}`}
     >
-      <Plus size={20} /> Create Board
+      <Plus size={20} /> <span>Create Board</span>
     </button>
   )
 }

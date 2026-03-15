@@ -12,9 +12,9 @@
 .headerTitle h1 {
   margin: 0;
   font-size: 2.2rem;
-  font-weight: bold;
 }
 
 .header p {
   margin: 0 0 5px 0;
+  color: var(--primary-light-foreground)
 }

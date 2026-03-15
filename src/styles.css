@@ -1,7 +1,15 @@
+@font-face {
+  font-family: 'MyVariableFont';
+  src: url('/fonts/NotoSans.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'NotoSans', sans-serif;
 }
 
 :root {
@@ -11,8 +19,9 @@
   --primary-active: #ada9f4;
   --primary-light-foreground: #c7c4d8;
 
-  --secondary: #1e1e20;
+  --secondary: #1c1b1c;
   --secondary-light: #2e2e2f;
+  --secondary-highlight: #3a3a3a;
   --secondary-background: #c8c6c8;
 
   --tertiary: #3abff8;
@@ -42,6 +51,8 @@ main {
   border: 0;
   outline: none;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
   padding: 0 5px;
 }
 
