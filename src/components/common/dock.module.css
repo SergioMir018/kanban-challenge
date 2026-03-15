@@ -2,7 +2,6 @@
   position: fixed;
   left: 50%;
   bottom: 16px;
-  transform: translateX(-50%);
   display: flex;
   gap: 8px;
   padding: 15px 25px;
@@ -32,8 +31,26 @@
   color: white;
 }
 
-@media (340px <= width <= 450px) {
+@media (340px <= width < 390px) {
+  .dock {
+    transform: translateX(-50%) scale(0.75);
+  }
+}
+
+@media (390px <= width < 450px) {
   .dock {
     transform: translateX(-50%) scale(0.8);
+  }
+}
+
+@media (450px <= width < 900px) {
+  .dock {
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+
+@media (min-width: 900px) {
+  .dock {
+    transform: translateX(-50%);
   }
 }

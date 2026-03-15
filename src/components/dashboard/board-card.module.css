@@ -1,40 +1,45 @@
 .boardCard {
-  background: radial-gradient(
-      200px circle at var(--card-x) var(--card-y),
-      color-mix(in srgb, var(--primary), transparent 80%),
-      var(--secondary)
-    );;
+  background: var(--secondary);
   padding: 25px;
   corner-shape: squircle;
   border-radius: 10px;
   transition: all 0.15s;
   position: relative;
   overflow: hidden;
-  --card-x: calc(var(--mouse-x) - var(--card-left));
-  --card-y: calc(var(--mouse-y) - var(--card-top));
 }
 
-.boardCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background:
-    radial-gradient(
-      300px circle at var(--card-x) var(--card-y),
-      var(--primary),
-      transparent 60%
+@media (pointer: fine) {
+  .boardCard {
+    background: radial-gradient(
+      200px circle at var(--card-x) var(--card-y),
+      color-mix(in srgb, var(--primary), transparent 80%),
+      var(--secondary)
     );
-  mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-  mask-image: xor;
-  mask-composite: exclude;
-}
+    --card-x: calc(var(--mouse-x) - var(--card-left));
+    --card-y: calc(var(--mouse-y) - var(--card-top));
+  }
+  .boardCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background:
+      radial-gradient(
+        300px circle at var(--card-x) var(--card-y),
+        var(--primary),
+        transparent 60%
+      );
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-image: xor;
+    mask-composite: exclude;
+  }
 
-.boardCard:hover::before{
-  opacity: 1;
+  .boardCard:hover::before{
+    opacity: 1;
+  }
 }
 
 .boardCardHeader {
