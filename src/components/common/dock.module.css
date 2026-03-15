@@ -31,3 +31,9 @@
   background-color: var(--primary);
   color: white;
 }
+
+@media (340px <= width <= 450px) {
+  .dock {
+    transform: translateX(-50%) scale(0.8);
+  }
+}
