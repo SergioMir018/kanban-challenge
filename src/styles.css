@@ -28,7 +28,7 @@
   --tertiary-dark: #003549;
   --tertiary-background: #006689;
 
-  --neutral: #0f0f10;
+  --neutral: #0e0e0f;
   --background: #131314;
 }
 
@@ -53,7 +53,7 @@ main {
   border-radius: 5px;
   font-weight: bold;
   font-size: 0.9rem;
-  padding: 0 5px;
+  padding: 10px 10px;
 }
 
 .primaryButton:hover {

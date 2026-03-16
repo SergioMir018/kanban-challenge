@@ -4,12 +4,14 @@ import Header from '#/components/common/header'
 import AddBoardButton from '#/components/dashboard/add-board-button'
 import { useBoardsStore } from '#/stores/boards-store'
 import BoardCard from '#/components/dashboard/board-card'
+import { useGlobalMouseLight } from '#/lib/hooks/use-mouse-light'
 
 export const Route = createFileRoute('/dashboard/')({
   component: Dashboard,
 })
 
 function Dashboard() {
+  useGlobalMouseLight()
   const boards = useBoardsStore((state) => state.boards)
 
   return (
@@ -18,11 +20,12 @@ function Dashboard() {
         <AddBoardButton />
       </Header>
       <section className={styles.boardsContainer}>
-        {boards.map((board) => (
+        {boards.map((board, i) => (
           <BoardCard
             key={board.id}
             title={board.name}
             description={board.description}
+            boards={i + 1}
           />
         ))}
       </section>
