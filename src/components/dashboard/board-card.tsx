@@ -38,7 +38,7 @@ export default function BoardCard({
           ))}
         {boards > 4 && (
           <div className={styles.remaingingBoards}>
-            <Plus strokeWidth={3} /> {boards - 4}
+            <Plus size={15} strokeWidth={3} /> {boards - 4}
           </div>
         )}
       </div>
