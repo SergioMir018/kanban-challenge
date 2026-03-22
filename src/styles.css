@@ -31,6 +31,8 @@
   --neutral: #0e0e0f;
   --background: #131314;
 
+  --error: #ba1a1a;
+
   --card-border-radius: 10px;
 }
 
@@ -86,5 +88,8 @@ main {
 }
 
 .iconButton {
+  display: flex;
+  justify-items: center;
+  align-items: center;
   padding: 2px 4px;
 }

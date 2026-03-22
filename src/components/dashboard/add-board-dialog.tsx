@@ -2,16 +2,29 @@ import { useBoardsStore } from '#/stores/boards-store'
 import { X } from 'lucide-react'
 import styles from './add-board-dialog.module.css'
 import { useRef } from 'react'
+import { useForm, type SubmitHandler } from 'react-hook-form'
+
+type AddBoardForm = {
+  name: string
+  description?: string
+}
 
 export default function AddBoardDialog() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<AddBoardForm>()
   const boardsState = useBoardsStore((state) => state)
   const dialodRef = useRef<HTMLDialogElement>(null)
 
-  const handleAddBoard = () => {
+  const onSubmit: SubmitHandler<AddBoardForm> = (data) => {
+    console.log(data)
+
     boardsState.addBoard({
       id: Date.now().toString(),
-      name: `Board ${boardsState.boards.length + 1}`,
-      description: `Description for Board ${boardsState.boards.length + 1}`,
+      name: data.name,
+      description: data.description,
     })
 
     dialodRef.current?.close()
@@ -20,41 +33,46 @@ export default function AddBoardDialog() {
   return (
     <dialog ref={dialodRef} id="create-kanban-dialog">
       <div className={styles.modal}>
-        <div className={styles.modalContent}>
-          <div className={styles.modalHeader}>
-            <h1>Create New Board</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h1>Create New Board</h1>
+              <button
+                className="ghostButton iconButton"
+                onClick={() => dialodRef.current?.close()}
+              >
+                <X />
+              </button>
+            </div>
+            <p>Initialize a new board for you or your team</p>
+            <div className={styles.modalForm}>
+              <div className={styles.inputPair}>
+                <label>BOARD NAME</label>
+                <input type="text" {...register('name', { required: true })} />
+                {errors.name && (
+                  <span className={styles.errorMessage}>
+                    The board needs a name
+                  </span>
+                )}
+              </div>
+              <div className={styles.inputPair}>
+                <label>DESCRIPTION (OPTIONAL)</label>
+                <textarea {...register('description')} />
+              </div>
+            </div>
+          </div>
+          <div className={`${styles.modalFooter} ${styles.modalContent}`}>
             <button
-              className="ghostButton iconButton"
-              commandfor="create-kanban-dialog"
-              command="close"
+              className="ghostButton textButton"
+              onClick={() => dialodRef.current?.close()}
             >
-              <X />
+              Cancel
+            </button>
+            <button type="submit" className="primaryButton">
+              Create Board
             </button>
           </div>
-          <p>Initialize a new board for you or your team</p>
-          <form action="" className={styles.modalForm}>
-            <div className={styles.inputPair}>
-              <label htmlFor="">BOARD NAME</label>
-              <input />
-            </div>
-            <div className={styles.inputPair}>
-              <label htmlFor="">DESCRIPTION (OPTIONAL)</label>
-              <textarea />
-            </div>
-          </form>
-        </div>
-        <div className={`${styles.modalFooter} ${styles.modalContent}`}>
-          <button
-            className="ghostButton textButton"
-            commandfor="create-kanban-dialog"
-            command="close"
-          >
-            Cancel
-          </button>
-          <button onClick={handleAddBoard} className="primaryButton">
-            Create Board
-          </button>
-        </div>
+        </form>
       </div>
     </dialog>
   )
