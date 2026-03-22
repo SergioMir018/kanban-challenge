@@ -2,5 +2,5 @@
   width: 175px;
   height: 90px;
   background: var(--neutral);
-  border-radius: 10px;
+  border-radius: var(--card-border-radius);
 }

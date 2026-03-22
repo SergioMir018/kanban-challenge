@@ -5,6 +5,7 @@ import AddBoardButton from '#/components/dashboard/add-board-button'
 import { useBoardsStore } from '#/stores/boards-store'
 import BoardCard from '#/components/dashboard/board-card'
 import { useGlobalMouseLight } from '#/lib/hooks/use-mouse-light'
+import AddBoardDialog from '#/components/dashboard/add-board-dialog'
 
 export const Route = createFileRoute('/dashboard/')({
   component: Dashboard,
@@ -19,6 +20,7 @@ function Dashboard() {
       <Header title="Active Boards" titleSubtext="Overview">
         <AddBoardButton />
       </Header>
+      <AddBoardDialog />
       <section className={styles.boardsContainer}>
         {boards.map((board, i) => (
           <BoardCard

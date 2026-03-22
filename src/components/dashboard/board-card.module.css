@@ -2,7 +2,7 @@
   background: var(--secondary);
   padding: 25px;
   corner-shape: squircle;
-  border-radius: 10px;
+  border-radius: var(--card-border-radius);
   transition: all 0.15s;
   position: relative;
   overflow: hidden;
@@ -10,34 +10,32 @@
 
 @media (pointer: fine) {
   .boardCard {
-    background: radial-gradient(
-      200px circle at var(--card-x) var(--card-y),
-      color-mix(in srgb, var(--primary), transparent 80%),
-      var(--secondary)
-    );
+    background: radial-gradient(200px circle at var(--card-x) var(--card-y),
+        color-mix(in srgb, var(--primary), transparent 80%),
+        var(--secondary));
     --card-x: calc(var(--mouse-x) - var(--card-left));
     --card-y: calc(var(--mouse-y) - var(--card-top));
   }
+
   .boardCard::before {
     content: "";
     position: absolute;
+    corner-shape: squircle;
     inset: 0;
     border-radius: inherit;
     padding: 1px;
     background:
-      radial-gradient(
-        300px circle at var(--card-x) var(--card-y),
+      radial-gradient(300px circle at var(--card-x) var(--card-y),
         var(--primary),
-        transparent 60%
-      );
+        transparent 60%);
     mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     mask-image: xor;
     mask-composite: exclude;
   }
 
-  .boardCard:hover::before{
+  .boardCard:hover::before {
     opacity: 1;
   }
 }
@@ -89,22 +87,21 @@
   gap: 0;
 }
 
-.miniBoardsContainer:has(> [data-mini-board]:nth-child(4)) > :nth-child(1) {
+.miniBoardsContainer:has(> [data-mini-board]:nth-child(4))> :nth-child(1) {
   margin-left: -5px;
 }
 
-.miniBoardsContainer:has(> [data-mini-board]:nth-child(4)) > [data-mini-board] + [data-mini-board] {
+.miniBoardsContainer:has(> [data-mini-board]:nth-child(4))>[data-mini-board]+[data-mini-board] {
   margin-left: -44px;
 }
 
-.miniBoardsContainer:has(> .remaingingBoards:nth-child(5)) > [data-mini-board] +  [data-mini-board] {
+.miniBoardsContainer:has(> .remaingingBoards:nth-child(5))>[data-mini-board]+[data-mini-board] {
   margin-left: -45px;
 }
 
-.miniBoardsContainer:has(> :nth-child(4)) > [data-mini-board] {
+.miniBoardsContainer:has(> :nth-child(4))>[data-mini-board] {
   border-top: 5px solid var(--secondary);
   border-left: 5px solid var(--secondary);
   border-bottom: 5px solid var(--secondary);
   height: 100px;
 }
-
