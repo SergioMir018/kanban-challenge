@@ -1,0 +1,107 @@
+dialog[open] {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  outline: none;
+  border: none;
+  animation: fadeInScale 0.2s forwards ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+
+dialog::backdrop {
+  animation: backdropFade 0.2s forwards;
+}
+
+@keyframes backdropFade {
+  from {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(5px);
+  }
+}
+
+.modal {
+  background: var(--secondary-light);
+  width: 600px;
+  border-radius: var(--card-border-radius);
+  corner-shape: squircle;
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    color: var(--primary-light-foreground);
+    font-size: 0.98rem;
+  }
+}
+
+.modalContent {
+  padding: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  width: 100%;
+  background: var(--secondary-highlight);
+  corner-shape: squircle;
+  border-radius: 0px 0px var(--card-border-radius) var(--card-border-radius);
+}
+
+.modalForm {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.inputPair {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0 15px 0;
+  label {
+    font-size: 0.9rem;
+    font-variation-settings: "wdth" 60;
+    letter-spacing: 3px;
+  }
+  input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    box-shadow: 1px 5px 15px color-mix(in srgb, var(--background), transparent 70%);
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    resize: none;
+    box-shadow: 1px 5px 15px color-mix(in srgb, var(--background), transparent 70%);
+  }
+  .errorMessage {
+    color: var(--error);
+    margin-left: 3px;
+  }
+}

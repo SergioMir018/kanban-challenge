@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'MyVariableFont';
+  font-family: 'NotoSansVar';
   src: url('/fonts/NotoSans.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-stretch: 75% 100%;
@@ -9,7 +9,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'NotoSans', sans-serif;
+  font-family: 'NotoSansVar', sans-serif;
 }
 
 :root {
@@ -28,8 +28,12 @@
   --tertiary-dark: #003549;
   --tertiary-background: #006689;
 
-  --neutral: #0f0f10;
+  --neutral: #0e0e0f;
   --background: #131314;
+
+  --error: #ba1a1a;
+
+  --card-border-radius: 10px;
 }
 
 html,
@@ -53,7 +57,8 @@ main {
   border-radius: 5px;
   font-weight: bold;
   font-size: 0.9rem;
-  padding: 0 5px;
+  padding: 10px 10px;
+  cursor: pointer;
 }
 
 .primaryButton:hover {
@@ -66,6 +71,12 @@ main {
   color: var(--primary-light-foreground);
   outline: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.textButton {
+  font-size: 0.9rem;
+  padding: 15px 20px;
 }
 
 .ghostButton:hover {
@@ -77,5 +88,8 @@ main {
 }
 
 .iconButton {
+  display: flex;
+  justify-items: center;
+  align-items: center;
   padding: 2px 4px;
 }
